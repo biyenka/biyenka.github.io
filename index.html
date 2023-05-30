@@ -83,3 +83,26 @@
   </div>
 </body>
 </html>
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $message = $_POST["message"];
+
+  // Дополнительные действия с данными (например, отправка письма или сохранение в базу данных)
+
+  // Пример отправки письма
+  $to = "your-email@example.com"; // Замените на свой адрес электронной почты
+  $subject = "Новое сообщение от $name";
+  $body = "Имя: $name\n\nEmail: $email\n\nСообщение:\n$message";
+
+  // Отправка письма
+  mail($to, $subject, $body);
+
+  // Отправка ответа клиенту
+  echo "Спасибо! Ваше сообщение отправлено.";
+}
+?>
+
